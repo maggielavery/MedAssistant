@@ -1,0 +1,519 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maggie · Care Dashboard</title>
+  <style>
+    :root {
+      --bg: #f6f7fb; --panel: #ffffff; --text: #1e293b; --muted: #64748b; --faint: #94a3b8;
+      --border: #e5e7eb; --accent: #4f46e5; --accent-soft: #eef2ff;
+      --red: #dc2626; --red-soft: #fee2e2; --amber: #b45309; --amber-soft: #fef3c7;
+      --green: #047857; --green-soft: #d1fae5; --slate: #475569; --slate-soft: #f1f5f9;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg); color: var(--text); }
+
+    /* Header */
+    header { background: var(--panel); border-bottom: 1px solid var(--border);
+      padding: 12px 24px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .brand { font-size: 16px; font-weight: 700; margin: 0; letter-spacing: -.2px; }
+    .brand span { color: var(--muted); font-weight: 500; }
+    .patient-chip { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+    .patient-chip .who { line-height: 1.25; }
+    .patient-chip .who b { font-size: 14px; display: block; }
+    .patient-chip .who span { font-size: 12px; color: var(--muted); }
+    select { padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border); font-size: 13px;
+      background: var(--panel); }
+
+    /* Tabs */
+    .tabs { display: flex; gap: 4px; padding: 10px 24px 0; background: var(--panel);
+      border-bottom: 1px solid var(--border); overflow-x: auto; }
+    .tab { position: relative; display: flex; align-items: center; gap: 6px; padding: 10px 16px;
+      cursor: pointer; border-radius: 8px 8px 0 0; font-size: 14px; color: var(--muted); white-space: nowrap; }
+    .tab.active { color: var(--text); background: var(--bg); border: 1px solid var(--border);
+      border-bottom: none; font-weight: 600; }
+    .count-badge { min-width: 19px; height: 19px; padding: 0 6px; border-radius: 10px; background: var(--red);
+      color: #fff; font-size: 11px; font-weight: 700; display: inline-flex; align-items: center;
+      justify-content: center; font-variant-numeric: tabular-nums; }
+    .count-badge[hidden] { display: none; }
+
+    .container { padding: 24px; max-width: 1180px; margin: 0 auto; }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 14px;
+      padding: 18px; margin-bottom: 16px; }
+    .card h2 { font-size: 12px; margin: 0 0 12px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); }
+    .kv { font-size: 13px; margin: 4px 0; }
+    .kv b { color: var(--muted); font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; }
+    .pill { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: var(--accent-soft); color: var(--accent);
+      white-space: nowrap; }
+    .pill.red { background: var(--red-soft); color: var(--red); }
+    .pill.green { background: var(--green-soft); color: var(--green); }
+    .pill.amber { background: var(--amber-soft); color: var(--amber); }
+    .muted { color: var(--muted); }
+    .icon { font-size: 15px; }
+    button.mini { font-size: 12px; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border);
+      background: var(--panel); cursor: pointer; }
+    .hidden { display: none; }
+    .evidence { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .repeat { margin-top: 6px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; }
+    .repeat .evidence { margin-top: 0; }
+
+    /* Avatar (placeholder photo) */
+    .avatar { border-radius: 50%; background: linear-gradient(145deg, #c7d2fe, #a5b4fc); overflow: hidden;
+      flex-shrink: 0; display: block; }
+    .avatar.sm { width: 38px; height: 38px; }
+    .avatar.lg { width: 84px; height: 84px; }
+
+    /* Overview layout */
+    .overview { display: grid; grid-template-columns: 330px 1fr; gap: 20px; align-items: start; }
+    .profile { padding: 0; overflow: hidden; }
+    .profile-head { display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 22px 18px 16px; background: linear-gradient(180deg, var(--accent-soft), var(--panel)); }
+    .profile-head h3 { margin: 12px 0 2px; font-size: 18px; }
+    .profile-head .sub { font-size: 13px; color: var(--muted); }
+    .section { padding: 14px 18px; border-top: 1px solid var(--border); }
+    .section h4 { margin: 0 0 8px; font-size: 11px; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); }
+    .section p { margin: 0; font-size: 13px; line-height: 1.5; }
+    .facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; font-size: 13px; }
+    .facts dt { color: var(--muted); }
+    .facts dd { margin: 0; }
+    .list { list-style: none; margin: 0; padding: 0; font-size: 13px; }
+    .list li { padding: 5px 0; border-bottom: 1px dashed var(--border); }
+    .list li:last-child { border-bottom: none; }
+    .list .dose { color: var(--muted); }
+    .visit-date { font-weight: 600; font-size: 13px; }
+    .rel { font-size: 12px; color: var(--muted); }
+
+    /* Symptom timeline */
+    .timeline-card h2 { display: flex; justify-content: space-between; align-items: center; }
+    .current { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 18px; }
+    .current .label { font-size: 12px; color: var(--muted); margin-right: 2px; }
+    .current .chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 4px 10px;
+      border-radius: 999px; border: 1px solid var(--border); background: var(--panel); }
+    .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .s-present { --c: var(--red); --soft: var(--red-soft); }
+    .s-uncertain { --c: var(--amber); --soft: var(--amber-soft); }
+    .s-resolved { --c: var(--green); --soft: var(--green-soft); }
+    .s-absent, .s-historical { --c: var(--slate); --soft: var(--slate-soft); }
+    .dot { background: var(--c, var(--faint)); }
+    .tl-day { font-size: 12px; font-weight: 600; color: var(--muted); margin: 14px 0 8px; }
+    .tl-day:first-of-type { margin-top: 0; }
+    .tl { position: relative; padding-left: 22px; }
+    .tl::before { content: ""; position: absolute; left: 6px; top: 4px; bottom: 4px; width: 2px; background: var(--border); }
+    .tl-item { position: relative; margin-bottom: 10px; padding: 10px 12px; border: 1px solid var(--border);
+      border-radius: 10px; background: var(--panel); }
+    .tl-item::before { content: ""; position: absolute; left: -21px; top: 14px; width: 12px; height: 12px;
+      border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px var(--panel); }
+    .tl-top { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .tl-top .name { font-weight: 600; font-size: 14px; text-transform: capitalize; }
+    .status { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px; background: var(--soft);
+      color: var(--c); text-transform: capitalize; }
+    .tl-top .time { margin-left: auto; font-size: 12px; color: var(--faint); }
+    .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 7px; }
+    .meta span { font-size: 12px; color: var(--slate); background: var(--slate-soft); padding: 2px 8px; border-radius: 6px; }
+    .meta span.warn { color: var(--amber); background: var(--amber-soft); }
+    .tl-desc { font-size: 13px; color: var(--muted); margin-top: 7px; line-height: 1.45;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .empty { font-size: 13px; color: var(--muted); padding: 8px 0; }
+
+    /* Appointments */
+    .visits { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .visit { display: flex; gap: 14px; }
+    .visit .cal { width: 52px; flex-shrink: 0; border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      text-align: center; background: var(--panel); }
+    .visit .cal .m { background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; padding: 3px 0;
+      text-transform: uppercase; letter-spacing: .5px; }
+    .visit .cal.past .m { background: var(--faint); }
+    .visit .cal .d { font-size: 20px; font-weight: 700; padding: 5px 0 6px; }
+    .visit h3 { margin: 0 0 2px; font-size: 14px; }
+    .visit p { margin: 6px 0 0; font-size: 13px; color: var(--muted); line-height: 1.45; }
+
+    @media (max-width: 860px) {
+      .overview, .visits { grid-template-columns: 1fr; }
+      .patient-chip { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="brand">Maggie <span>· Care Dashboard</span></h1>
+    <div class="patient-chip">
+      <span id="headerAvatar"></span>
+      <div class="who"><b id="patientName">Loading…</b><span id="patientMeta"></span></div>
+      <select id="patientSelect" aria-label="Select patient"></select>
+    </div>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="overview">Overview</div>
+    <div class="tab" data-tab="alerts"><span class="icon">🔴</span> Alerts
+      <span class="count-badge" id="badge-alerts" hidden></span></div>
+    <div class="tab" data-tab="appointments"><span class="icon">📅</span> Appointments
+      <span class="count-badge" id="badge-appointments" hidden></span></div>
+    <div class="tab" data-tab="doctor"><span class="icon">📌</span> Doctor messages
+      <span class="count-badge" id="badge-doctor" hidden></span></div>
+  </div>
+
+  <div class="container">
+    <div id="overview" class="tabpane"></div>
+    <div id="alerts" class="tabpane hidden"></div>
+    <div id="appointments" class="tabpane hidden"></div>
+    <div id="doctor" class="tabpane hidden"></div>
+  </div>
+
+  <script>
+    let PATIENT_ID = {{ patient.id|default:"null" }};
+    let dashboard = null;
+    let ACTIVE_TAB = "overview";
+
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) => (s == null ? "" : String(s)).replace(/[&<>"']/g, c =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+    async function api(url, opts = {}) {
+      const res = await fetch(url, { headers: { "Content-Type": "application/json" }, ...opts });
+      if (!res.ok) throw new Error((await res.json().catch(() => ({}))).detail || res.statusText);
+      return res.json();
+    }
+
+    // ---------------------------------------------------------------------
+    // Display helpers
+    // ---------------------------------------------------------------------
+    // Placeholder profile photo: a neutral silhouette, not a real person.
+    function avatar(size) {
+      return `<svg class="avatar ${size}" viewBox="0 0 64 64" role="img" aria-label="Profile photo placeholder">
+        <circle cx="32" cy="25" r="11" fill="#eef2ff"/>
+        <path d="M11 58c2-12 11-18 21-18s19 6 21 18" fill="#eef2ff"/></svg>`;
+    }
+
+    // Date-only strings ("2026-09-27") are calendar dates, so parse them as local.
+    function parseDate(value) {
+      if (!value) return null;
+      if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+        const [y, m, d] = value.split("-").map(Number);
+        return new Date(y, m - 1, d);
+      }
+      const d = new Date(value);
+      return isNaN(d) ? null : d;
+    }
+    const fmtDate = (v, opts = { month: "short", day: "numeric", year: "numeric" }) => {
+      const d = parseDate(v); return d ? d.toLocaleDateString(undefined, opts) : "";
+    };
+    const fmtDateTime = (v) => {
+      const d = parseDate(v);
+      if (!d) return v || "";
+      return d.toLocaleString(undefined, { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+    };
+    function daysFromToday(v) {
+      const d = parseDate(v); if (!d) return null;
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      const day = new Date(d); day.setHours(0, 0, 0, 0);
+      return Math.round((day - today) / 86400000);
+    }
+    function relDays(v) {
+      const n = daysFromToday(v);
+      if (n === null) return "";
+      if (n === 0) return "today";
+      if (n === 1) return "tomorrow";
+      if (n === -1) return "yesterday";
+      return n > 0 ? `in ${n} days` : `${-n} days ago`;
+    }
+    const cap = (s) => (s || "").charAt(0).toUpperCase() + (s || "").slice(1);
+
+    // ---------------------------------------------------------------------
+    // "New items" badges. Seen items are remembered per patient and pane in
+    // this browser; a badge clears only when its pane is opened. An action
+    // counts as new again when the patient adds details to it.
+    // ---------------------------------------------------------------------
+    const BADGE_PANES = ["alerts", "appointments", "doctor"];
+    function paneItems(pane) {
+      const a = (dashboard && dashboard.alerts) || {};
+      if (pane === "alerts") return (a.flags || []).map(f =>
+        `flag:${f.id}:${((f.evidence || {}).repeat_reports || []).length}`);
+      const list = pane === "appointments" ? a.appointments : a.doctor_messages;
+      return (list || []).map(x => `action:${x.id}:${(x.follow_up_details || []).length}`);
+    }
+    const seenKey = (pane) => `maggie.seen.${PATIENT_ID}.${pane}`;
+    function loadSeen(pane) {
+      try { return new Set(JSON.parse(localStorage.getItem(seenKey(pane)) || "[]")); }
+      catch { return new Set(); }
+    }
+    function markSeen(pane) {
+      try { localStorage.setItem(seenKey(pane), JSON.stringify(paneItems(pane))); } catch {}
+    }
+    function updateBadges() {
+      BADGE_PANES.forEach(pane => {
+        if (ACTIVE_TAB === pane) markSeen(pane);  // already looking at it
+        const seen = loadSeen(pane);
+        const fresh = paneItems(pane).filter(id => !seen.has(id)).length;
+        const badge = $(`badge-${pane}`);
+        badge.textContent = fresh > 99 ? "99+" : String(fresh);
+        badge.hidden = fresh === 0;
+        badge.setAttribute("aria-label", `${fresh} new`);
+      });
+    }
+
+    // ---------------------------------------------------------------------
+    // Data loading
+    // ---------------------------------------------------------------------
+    async function loadPatients() {
+      const patients = await api(`/api/admin/patients/`);
+      const sel = $("patientSelect");
+      sel.innerHTML = "";
+      patients.forEach(p => {
+        const o = document.createElement("option");
+        o.value = p.id; o.textContent = `${p.name} (#${p.id})`;
+        sel.appendChild(o);
+      });
+      if (!PATIENT_ID && patients.length) PATIENT_ID = patients[0].id;
+      sel.value = PATIENT_ID;
+      sel.onchange = () => {
+        PATIENT_ID = parseInt(sel.value);
+        loadDashboard();
+      };
+      loadDashboard();
+    }
+
+    async function loadDashboard() {
+      dashboard = await api(`/api/admin/patients/${PATIENT_ID}/dashboard/`);
+      renderHeader();
+      renderOverview();
+      renderAlerts();
+      renderAppointments();
+      renderDoctor();
+      updateBadges();
+    }
+
+    function renderHeader() {
+      const d = dashboard.profile.demographics || {};
+      $("headerAvatar").innerHTML = avatar("sm");
+      $("patientName").textContent = d.name || `Patient #${PATIENT_ID}`;
+      const parts = [d.sex ? cap(d.sex) : null, d.age ? `${d.age} years` : null, `Patient #${PATIENT_ID}`];
+      $("patientMeta").textContent = parts.filter(Boolean).join(" · ");
+    }
+
+    // ---------------------------------------------------------------------
+    // Overview
+    // ---------------------------------------------------------------------
+    function renderOverview() {
+      const p = dashboard;
+      const prof = p.profile;
+      const demo = prof.demographics || {};
+      const meds = (prof.medications || []).map(m =>
+        `<li>${esc(m.name)} <span class="dose">${esc([m.dose, m.schedule].filter(Boolean).join(" · "))}</span></li>`).join("");
+      const conds = (prof.conditions || []).map(c => `<li>${esc(c)}</li>`).join("");
+      const last = p.last_visit || {};
+      const next = p.upcoming_appointment || {};
+
+      const profile = `
+        <div class="card profile">
+          <div class="profile-head">
+            ${avatar("lg")}
+            <h3>${esc(demo.name)}</h3>
+            <div class="sub">${esc([demo.sex ? cap(demo.sex) : "", demo.age ? `${demo.age} years` : ""].filter(Boolean).join(" · "))}</div>
+          </div>
+          <div class="section"><h4>Profile</h4>
+            <dl class="facts">
+              <dt>Name</dt><dd>${esc(demo.name)}</dd>
+              <dt>Age</dt><dd>${esc(demo.age)}</dd>
+              <dt>Baseline weight</dt><dd>${esc((prof.baseline || {}).weight_lbs)} lbs</dd>
+            </dl>
+          </div>
+          <div class="section"><h4>Care guidance</h4><p>${esc(prof.care_guidance || "")}</p></div>
+          <div class="section"><h4>Conditions</h4><ul class="list">${conds}</ul></div>
+          <div class="section"><h4>Medications</h4><ul class="list">${meds}</ul></div>
+          <div class="section"><h4>Recent visit</h4>
+            <div class="visit-date">${esc(fmtDate(last.date))} <span class="rel">· ${esc(relDays(last.date))}</span></div>
+            <p>${esc(last.type || "")}</p>
+            <p class="muted" style="margin-top:4px">${esc(last.notes || "")}</p>
+          </div>
+          <div class="section"><h4>Upcoming appointment</h4>
+            <div class="visit-date">${esc(fmtDate(next.date))} <span class="rel">· ${esc(relDays(next.date))}</span></div>
+            <p>${esc(next.type || "")}</p>
+          </div>
+        </div>`;
+
+      $("overview").innerHTML = `<div class="overview">${profile}${renderTimeline(p.current_status_timeline || [])}</div>`;
+    }
+
+    // Latest status per symptom (grouped like retrieval: watch-for, else label),
+    // then a dated vertical timeline of recent reports.
+    function renderTimeline(statuses) {
+      if (!statuses.length) {
+        return `<div class="card timeline-card"><h2>Symptom timeline</h2><div class="empty">No observations yet.</div></div>`;
+      }
+      const label = (s) => (s.symptoms || [])[0] || "Symptom";
+      const latest = new Map();
+      statuses.forEach(s => {  // newest first from the API
+        const key = s.watch_for_id || label(s).toLowerCase();
+        if (!latest.has(key)) latest.set(key, s);
+      });
+      const chips = [...latest.values()].map(s =>
+        `<span class="chip s-${esc(s.symptom_status)}"><span class="dot"></span>${esc(cap(label(s)))}
+          <span class="muted">${esc(s.symptom_status)}</span></span>`).join("");
+
+      let html = "", day = null;
+      statuses.forEach(s => {
+        const reported = s.reported_at || s.date;
+        const thisDay = fmtDate(reported, { weekday: "short", month: "short", day: "numeric", year: "numeric" });
+        if (thisDay !== day) {
+          if (day !== null) html += `</div>`;
+          const rel = relDays(reported);
+          html += `<div class="tl-day">${esc(thisDay)}${rel === "today" || rel === "yesterday" ? ` · ${cap(rel)}` : ""}</div><div class="tl">`;
+          day = thisDay;
+        }
+        const meta = [];
+        if (s.onset) meta.push(`<span>Onset ${esc(/^\d{4}-\d{2}-\d{2}T/.test(s.onset) ? fmtDateTime(s.onset) : s.onset)}</span>`);
+        if (s.severity) meta.push(`<span>Severity ${esc(s.severity)}</span>`);
+        if (s.clinical_time && !s.onset) meta.push(`<span>Occurred ${esc(fmtDate(s.clinical_time))}</span>`);
+        if ((s.missing_fields || []).length) meta.push(`<span class="warn">Still missing: ${esc(s.missing_fields.join(", "))}</span>`);
+        html += `
+          <div class="tl-item s-${esc(s.symptom_status)}">
+            <div class="tl-top">
+              <span class="name">${esc(label(s))}</span>
+              <span class="status">${esc(s.symptom_status)}</span>
+              <span class="time">${esc(s.reported_at ? new Date(s.reported_at).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }) : "")}</span>
+            </div>
+            ${meta.length ? `<div class="meta">${meta.join("")}</div>` : ""}
+            ${s.description ? `<div class="tl-desc" title="${esc(s.description)}">${esc(s.description)}</div>` : ""}
+          </div>`;
+      });
+      html += `</div>`;
+      return `<div class="card timeline-card">
+        <h2>Symptom timeline <span class="muted" style="text-transform:none;letter-spacing:0">${statuses.length} most recent reports</span></h2>
+        <div class="current"><span class="label">Latest status:</span>${chips}</div>
+        ${html}
+      </div>`;
+    }
+
+    // ---------------------------------------------------------------------
+    // Worklist panes
+    // ---------------------------------------------------------------------
+    function renderAlerts() {
+      const flags = dashboard.alerts.flags || [];
+      const rows = flags.map(f => `
+        <tr>
+          <td><span class="icon">🔴</span> ${esc(f.description)}
+            <div class="evidence">msg #${esc((f.evidence||{}).source_message_id)} ·
+              watch-for: ${esc((f.evidence||{}).watch_for_id || "—")} ·
+              "${esc((f.evidence||{}).quote || "")}"
+              ${((f.evidence||{}).missing_fields || []).length ? `· still missing: ${esc(f.evidence.missing_fields.join(", "))}` : ""}</div>
+            ${repeats(f)}</td>
+          <td>${(f.confidence*100).toFixed(0)}%
+            <div class="evidence">symptom ${esc((f.evidence||{}).symptom_similarity ?? "—")} ·
+              message ${esc((f.evidence||{}).message_similarity ?? "—")}</div></td>
+          <td>
+            <select data-flag="${f.id}">
+              ${["NEW","OPEN","ACKNOWLEDGED","RESOLVED","DISMISSED"].map(s =>
+                `<option ${s===f.status?"selected":""}>${s}</option>`).join("")}
+            </select>
+          </td>
+          <td>${esc(fmtDateTime(f.created_at))}
+            ${((f.evidence||{}).repeat_reports || []).length ? `<div class="evidence">last reported ${esc(fmtDateTime(f.evidence.repeat_reports.slice(-1)[0].reported_at))}</div>` : ""}</td>
+        </tr>`).join("") || '<tr><td colspan="4" class="muted">No alerts.</td></tr>';
+      $("alerts").innerHTML = `<div class="card"><h2><span class="icon">🔴</span> Alerts / Flags</h2>
+        <table><thead><tr><th>Concern & evidence</th><th>Conf.</th><th>Status</th><th>When</th></tr></thead>
+        <tbody>${rows}</tbody></table></div>`;
+      $("alerts").querySelectorAll("select[data-flag]").forEach(sel => {
+        sel.onchange = async () => {
+          await api(`/api/admin/flags/${sel.dataset.flag}/`, {
+            method: "PATCH", body: JSON.stringify({ status: sel.value }) });
+          loadDashboard();
+        };
+      });
+    }
+
+    // The same unresolved concern reported again later (linked, not re-flagged).
+    function repeats(f) {
+      const list = (f.evidence || {}).repeat_reports || [];
+      if (!list.length) return "";
+      const last = list[list.length - 1];
+      return `<div class="repeat"><span class="pill red">Reported again ${list.length}×</span>
+        <span class="evidence">latest: "${esc(last.quote)}" (msg #${esc(last.message_id)}, ${esc(fmtDateTime(last.reported_at))})</span></div>`;
+    }
+
+    // Details the patient added in later messages, beneath the original request.
+    function followUps(a) {
+      const items = (a.follow_up_details || []).map(d =>
+        `<div class="evidence">+ ${esc(d.detail)} <span class="muted">(msg #${esc(d.message_id)}, ${esc(fmtDateTime(d.added_at))})</span></div>`);
+      return items.join("");
+    }
+
+    function calendar(date, past) {
+      const d = parseDate(date);
+      if (!d) return "";
+      return `<div class="cal ${past ? "past" : ""}"><div class="m">${esc(d.toLocaleDateString(undefined, { month: "short" }))}</div>
+        <div class="d">${d.getDate()}</div></div>`;
+    }
+
+    function renderAppointments() {
+      const last = dashboard.last_visit || {};
+      const next = dashboard.upcoming_appointment || {};
+      const items = dashboard.alerts.appointments || [];
+      const rows = items.map(a => `
+        <tr>
+          <td><span class="icon">📅</span> <span class="pill">${esc(a.action_type)}</span></td>
+          <td>"${esc(a.request_text)}"${followUps(a)}</td>
+          <td><span class="pill amber">${esc((a.result||{}).status || "recorded")}</span>
+            <div class="evidence">booked: ${(a.result||{}).booked ? "yes" : "no"}</div></td>
+          <td>${esc(fmtDateTime(a.created_at))}</td>
+        </tr>`).join("") || '<tr><td colspan="4" class="muted">No appointment requests.</td></tr>';
+      $("appointments").innerHTML = `
+        <div class="visits">
+          <div class="card"><h2>Recent visit</h2>
+            <div class="visit">${calendar(last.date, true)}
+              <div><h3>${esc(last.type || "")}</h3>
+                <div class="rel">${esc(fmtDate(last.date))} · ${esc(relDays(last.date))}</div>
+                <p>${esc(last.notes || "")}</p></div></div>
+          </div>
+          <div class="card"><h2>Upcoming appointment</h2>
+            <div class="visit">${calendar(next.date, false)}
+              <div><h3>${esc(next.type || "")}</h3>
+                <div class="rel">${esc(fmtDate(next.date))} · ${esc(relDays(next.date))}</div></div></div>
+          </div>
+        </div>
+        <div class="card"><h2><span class="icon">📅</span> Appointment requests & changes</h2>
+          <table><thead><tr><th>Type</th><th>Request</th><th>Status</th><th>When</th></tr></thead>
+          <tbody>${rows}</tbody></table></div>`;
+    }
+
+    function renderDoctor() {
+      const items = dashboard.alerts.doctor_messages || [];
+      const rows = items.map(a => `
+        <tr>
+          <td><span class="icon">📌</span></td>
+          <td>"${esc(a.request_text)}"${followUps(a)}</td>
+          <td><span class="pill amber">${esc((a.result||{}).status || "recorded")}</span>
+            <div class="evidence">delivered to doctor: ${(a.result||{}).delivered ? "yes" : "no"}</div></td>
+          <td>${esc(fmtDateTime(a.created_at))}</td>
+        </tr>`).join("") || '<tr><td colspan="4" class="muted">No doctor messages.</td></tr>';
+      $("doctor").innerHTML = `<div class="card"><h2><span class="icon">📌</span> Doctor messages</h2>
+        <table><thead><tr><th></th><th>Full patient message</th><th>Status</th><th>When</th></tr></thead>
+        <tbody>${rows}</tbody></table></div>`;
+    }
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.onclick = () => {
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        document.querySelectorAll(".tabpane").forEach(p => p.classList.add("hidden"));
+        ACTIVE_TAB = tab.dataset.tab;
+        $(ACTIVE_TAB).classList.remove("hidden");
+        if (BADGE_PANES.includes(ACTIVE_TAB)) updateBadges();  // opening a pane clears its badge
+      };
+    });
+
+    loadPatients();
+    // Keep the worklist current so flags raised during a chat appear without a reload.
+    setInterval(() => {
+      const editing = document.activeElement && ["SELECT", "INPUT"].includes(document.activeElement.tagName);
+      if (PATIENT_ID && !document.hidden && !editing) loadDashboard().catch(() => {});
+    }, 10000);
+  </script>
+</body>
+</html>

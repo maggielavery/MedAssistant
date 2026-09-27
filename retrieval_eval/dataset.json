@@ -1,0 +1,71 @@
+{
+  "description": "Labeled longitudinal-retrieval benchmark. 'history' is one patient's PatientStatus rows over ~6 months (plus rows for a second patient that must never be returned). Each row belongs to a symptom 'family': every row of a family is relevant to a query about that family, and the family's most recent row (by clinical time) is its current status. Queries are given the way the workflow builds them (symptom label, keywords, aligned watch-for, and context), so this isolates retrieval from symptom extraction.",
+  "history": [
+    {"key": "sw1", "family": "swelling", "label": "swelling", "status": "present", "watch_for_id": "increased_swelling", "reported_days_ago": 150, "clinical_days_ago": 152, "message": "My ankles have been a bit swollen the last few days."},
+    {"key": "sw2", "family": "swelling", "label": "ankle swelling", "status": "resolved", "watch_for_id": "increased_swelling", "reported_days_ago": 120, "clinical_days_ago": 121, "message": "The swelling in my ankles has gone down completely."},
+    {"key": "sw3", "family": "swelling", "label": "puffy ankles", "status": "present", "watch_for_id": "increased_swelling", "reported_days_ago": 60, "clinical_days_ago": 62, "message": "My ankles look puffy again, especially in the evening."},
+    {"key": "sw4", "family": "swelling", "label": "leg edema", "status": "present", "watch_for_id": "increased_swelling", "reported_days_ago": 45, "clinical_days_ago": 45, "message": "Both of my lower legs are swollen and my socks leave deep marks."},
+    {"key": "sw5", "family": "swelling", "label": "swelling", "status": "resolved", "watch_for_id": "increased_swelling", "reported_days_ago": 14, "clinical_days_ago": 15, "message": "My legs are back to normal now."},
+
+    {"key": "wt1", "family": "weight", "label": "weight gain", "status": "present", "watch_for_id": "rapid_weight_gain", "reported_days_ago": 90, "clinical_days_ago": 91, "message": "I put on 4 pounds in two days."},
+    {"key": "wt2", "family": "weight", "label": "weight gain", "status": "absent", "watch_for_id": "rapid_weight_gain", "reported_days_ago": 30, "message": "My weight has been steady around 182."},
+    {"key": "wt3", "family": "weight", "label": "rapid weight gain", "status": "absent", "watch_for_id": "rapid_weight_gain", "reported_days_ago": 7, "message": "Scale says 181 this morning, no gain."},
+
+    {"key": "sob1", "family": "breathing", "label": "shortness of breath", "status": "present", "watch_for_id": "worsening_shortness_of_breath", "reported_days_ago": 100, "clinical_days_ago": 102, "message": "I get winded walking to the mailbox."},
+    {"key": "sob2", "family": "breathing", "label": "orthopnea", "status": "present", "watch_for_id": "worsening_shortness_of_breath", "reported_days_ago": 95, "clinical_days_ago": 96, "message": "I've had to sleep on three pillows to breathe at night."},
+    {"key": "sob3", "family": "breathing", "label": "shortness of breath", "status": "resolved", "watch_for_id": "worsening_shortness_of_breath", "reported_days_ago": 80, "clinical_days_ago": 81, "message": "My breathing is much better since the medication change."},
+    {"key": "sob4", "family": "breathing", "label": "breathlessness", "status": "absent", "watch_for_id": "worsening_shortness_of_breath", "reported_days_ago": 10, "message": "No trouble at all, even lying flat."},
+
+    {"key": "wz1", "family": "wheeze", "label": "wheezing", "status": "present", "watch_for_id": "increased_wheeze", "reported_days_ago": 45, "clinical_days_ago": 46, "message": "I've been wheezing more than usual, especially at night."},
+    {"key": "wz2", "family": "wheeze", "label": "wheeze", "status": "resolved", "watch_for_id": "increased_wheeze", "reported_days_ago": 35, "clinical_days_ago": 36, "message": "That settled down after a few days of the inhaler."},
+
+    {"key": "cg1", "family": "cough", "label": "productive cough", "status": "present", "watch_for_id": "productive_cough", "reported_days_ago": 44, "clinical_days_ago": 47, "message": "I'm coughing up thick yellow phlegm."},
+    {"key": "cg2", "family": "cough", "label": "cough", "status": "resolved", "watch_for_id": "productive_cough", "reported_days_ago": 30, "clinical_days_ago": 32, "message": "All cleared up, nothing coming up anymore."},
+
+    {"key": "cp1", "family": "chest_pain", "label": "chest pain", "status": "absent", "watch_for_id": "chest_pain", "reported_days_ago": 60, "message": "No chest pain at all."},
+    {"key": "cp2", "family": "chest_pain", "label": "chest pain", "status": "absent", "watch_for_id": "chest_pain", "reported_days_ago": 7, "message": "Still nothing in my chest."},
+
+    {"key": "dz1", "family": "dizziness", "label": "lightheadedness", "status": "present", "watch_for_id": "dizziness", "reported_days_ago": 25, "clinical_days_ago": 25, "message": "I feel lightheaded when I stand up quickly."},
+    {"key": "dz2", "family": "dizziness", "label": "dizziness", "status": "resolved", "watch_for_id": "dizziness", "reported_days_ago": 20, "clinical_days_ago": 21, "message": "That feeling when I stand has gone away."},
+
+    {"key": "rash1", "family": "rash", "label": "rash", "status": "present", "watch_for_id": "", "reported_days_ago": 50, "clinical_days_ago": 57, "message": "I have an itchy rash on my forearm."},
+    {"key": "rash2", "family": "rash", "label": "arm rash", "status": "resolved", "watch_for_id": "", "reported_days_ago": 40, "clinical_days_ago": 41, "message": "It's gone now, my skin looks normal."},
+    {"key": "knee1", "family": "knee", "label": "knee pain", "status": "present", "watch_for_id": "", "reported_days_ago": 70, "clinical_days_ago": 75, "message": "My right knee aches when I climb stairs."},
+    {"key": "slp1", "family": "sleep", "label": "insomnia", "status": "present", "watch_for_id": "", "reported_days_ago": 15, "clinical_days_ago": 20, "message": "I've been having trouble falling asleep."},
+    {"key": "nau1", "family": "nausea", "label": "nausea", "status": "present", "watch_for_id": "", "reported_days_ago": 22, "clinical_days_ago": 23, "message": "The new pills make me a little nauseous."},
+    {"key": "thr1", "family": "throat", "label": "sore throat", "status": "present", "watch_for_id": "", "reported_days_ago": 5, "clinical_days_ago": 8, "message": "My throat has been sore since I started the new inhaler."},
+
+    {"key": "oth1", "family": "other_patient", "patient": "other", "label": "ankle swelling", "status": "present", "watch_for_id": "increased_swelling", "reported_days_ago": 5, "message": "My ankles are swollen."},
+    {"key": "oth2", "family": "other_patient", "patient": "other", "label": "productive cough", "status": "present", "watch_for_id": "productive_cough", "reported_days_ago": 3, "message": "I keep coughing up phlegm."}
+  ],
+  "queries": [
+    {"id": "swelling_paraphrase", "message": "My ankles are swollen again.", "queries": [{"label": "ankle swelling", "keywords": ["swollen ankles", "edema"], "watch_for_id": "increased_swelling"}], "expect": ["swelling"]},
+    {"id": "swelling_legs_puffy", "message": "My legs look puffy and my shoes feel tight.", "queries": [{"label": "leg swelling", "keywords": ["puffy legs", "edema"], "watch_for_id": "increased_swelling"}], "expect": ["swelling"]},
+    {"id": "swelling_checkin_item", "message": "Can we do my routine check-in?", "queries": [{"label": "increased swelling", "keywords": [], "watch_for_id": "increased_swelling", "context_text": "Increased swelling. Report new or worsening swelling in the ankles or legs."}], "expect": ["swelling"]},
+    {"id": "swelling_followup_weak_context", "message": "It started yesterday, pretty mild.", "queries": [{"label": "ankle swelling", "keywords": ["swelling"], "watch_for_id": "increased_swelling"}], "expect": ["swelling"]},
+    {"id": "weight_paraphrase", "message": "I've gained 3 pounds since Tuesday.", "queries": [{"label": "weight gain", "keywords": ["gained pounds"], "watch_for_id": "rapid_weight_gain"}], "expect": ["weight"]},
+    {"id": "weight_checkin_item", "message": "Let's do my check-in.", "queries": [{"label": "rapid weight gain", "keywords": [], "watch_for_id": "rapid_weight_gain", "context_text": "Rapid weight gain. Report weight gain over 3 lbs in 2 days."}], "expect": ["weight"]},
+    {"id": "breathing_exertion", "message": "I get out of breath climbing the stairs now.", "queries": [{"label": "shortness of breath", "keywords": ["breathlessness", "winded"], "watch_for_id": "worsening_shortness_of_breath"}], "expect": ["breathing"], "acceptable": ["wheeze"]},
+    {"id": "breathing_orthopnea", "message": "I need extra pillows to breathe at night.", "queries": [{"label": "orthopnea", "keywords": ["breathlessness lying flat"], "watch_for_id": "worsening_shortness_of_breath"}], "expect": ["breathing"], "acceptable": ["wheeze", "sleep"]},
+    {"id": "breathing_checkin_item", "message": "Can we go through my check-in?", "queries": [{"label": "worsening shortness of breath", "keywords": [], "watch_for_id": "worsening_shortness_of_breath", "context_text": "Worsening shortness of breath. Report worsening breathlessness, especially at rest or when lying flat (orthopnea)."}], "expect": ["breathing"], "acceptable": ["wheeze"]},
+    {"id": "wheeze_paraphrase", "message": "I'm wheezing a lot today.", "queries": [{"label": "wheezing", "keywords": ["wheeze"], "watch_for_id": "increased_wheeze"}], "expect": ["wheeze"], "acceptable": ["breathing"]},
+    {"id": "cough_mucus", "message": "Coughing up green mucus again.", "queries": [{"label": "productive cough", "keywords": ["phlegm", "mucus"], "watch_for_id": "productive_cough"}], "expect": ["cough"], "acceptable": ["wheeze", "throat"]},
+    {"id": "chest_pain_new", "message": "I had some chest pain this morning.", "queries": [{"label": "chest pain", "keywords": ["chest pain"], "watch_for_id": "chest_pain"}], "expect": ["chest_pain"]},
+    {"id": "dizzy_standing", "message": "I felt dizzy getting out of bed.", "queries": [{"label": "dizziness", "keywords": ["lightheaded"], "watch_for_id": "dizziness"}], "expect": ["dizziness"]},
+    {"id": "dizzy_checkin_item", "message": "Let's do my routine check-in.", "queries": [{"label": "dizziness", "keywords": [], "watch_for_id": "dizziness", "context_text": "Dizziness. Report new dizziness or lightheadedness."}], "expect": ["dizziness"]},
+    {"id": "rash_back", "message": "The rash on my arm came back.", "queries": [{"label": "rash", "keywords": ["itchy skin"], "watch_for_id": ""}], "expect": ["rash"]},
+    {"id": "knee_again", "message": "My knee is hurting again.", "queries": [{"label": "knee pain", "keywords": ["knee ache"], "watch_for_id": ""}], "expect": ["knee"]},
+    {"id": "sleep_trouble", "message": "I still can't sleep well.", "queries": [{"label": "insomnia", "keywords": ["trouble sleeping"], "watch_for_id": ""}], "expect": ["sleep"]},
+    {"id": "nausea_pills", "message": "I feel queasy after taking my pills.", "queries": [{"label": "nausea", "keywords": ["queasy"], "watch_for_id": ""}], "expect": ["nausea"]},
+    {"id": "throat_scratchy", "message": "My throat is scratchy.", "queries": [{"label": "sore throat", "keywords": ["scratchy throat"], "watch_for_id": ""}], "expect": ["throat"], "acceptable": ["cough"]},
+    {"id": "two_symptoms", "message": "I'm short of breath and my ankles are swollen.", "queries": [{"label": "shortness of breath", "keywords": ["breathlessness"], "watch_for_id": "worsening_shortness_of_breath"}, {"label": "ankle swelling", "keywords": ["swollen ankles"], "watch_for_id": "increased_swelling"}], "expect": ["breathing", "swelling"], "acceptable": ["wheeze"]},
+
+    {"id": "no_history_confusion", "message": "I've been more confused and forgetful lately.", "queries": [{"label": "confusion", "keywords": ["forgetful"], "watch_for_id": "confusion"}], "expect": []},
+    {"id": "no_history_confusion_checkin", "message": "Let's keep going with the check-in.", "queries": [{"label": "confusion", "keywords": [], "watch_for_id": "confusion", "context_text": "Confusion. Report new confusion or mental fog."}], "expect": []},
+    {"id": "distractor_headache", "message": "I have a headache.", "queries": [{"label": "headache", "keywords": ["head pain"], "watch_for_id": ""}], "expect": []},
+    {"id": "distractor_itchy_eyes", "message": "My eyes are itchy and watery.", "queries": [{"label": "itchy eyes", "keywords": ["watery eyes"], "watch_for_id": ""}], "expect": []},
+    {"id": "distractor_back_pain", "message": "My back is aching.", "queries": [{"label": "back pain", "keywords": ["back ache"], "watch_for_id": ""}], "expect": []},
+    {"id": "distractor_chest_congestion", "message": "I have a lot of chest congestion.", "queries": [{"label": "chest congestion", "keywords": ["congestion"], "watch_for_id": ""}], "expect": [], "acceptable": ["cough", "wheeze"]},
+    {"id": "distractor_eye_swelling", "message": "My eyelid is a bit swollen.", "queries": [{"label": "eyelid swelling", "keywords": ["swollen eyelid"], "watch_for_id": ""}], "expect": []}
+  ]
+}

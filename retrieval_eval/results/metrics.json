@@ -1,0 +1,2442 @@
+{
+  "comparison": {
+    "spec_baseline": {
+      "family_recall": 0.771,
+      "latest_status_hit": 0.6,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0,
+      "cases": [
+        {
+          "id": "swelling_paraphrase",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)"
+          ],
+          "has_history": true,
+          "recall": 0.8,
+          "latest_hit": false,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_legs_puffy",
+          "returned": [
+            "sw3(swelling)",
+            "sw4(swelling)"
+          ],
+          "has_history": true,
+          "recall": 0.4,
+          "latest_hit": false,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_checkin_item",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 0.6,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_followup_weak_context",
+          "returned": [
+            "sw2(swelling)"
+          ],
+          "has_history": true,
+          "recall": 0.2,
+          "latest_hit": false,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "weight_paraphrase",
+          "returned": [
+            "wt1(weight)",
+            "wt2(weight)",
+            "wt3(weight)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "weight_checkin_item",
+          "returned": [
+            "wt1(weight)",
+            "wt2(weight)",
+            "wt3(weight)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_exertion",
+          "returned": [
+            "sob1(breathing)",
+            "sob3(breathing)"
+          ],
+          "has_history": true,
+          "recall": 0.5,
+          "latest_hit": false,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_orthopnea",
+          "returned": [
+            "sob2(breathing)"
+          ],
+          "has_history": true,
+          "recall": 0.25,
+          "latest_hit": false,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_checkin_item",
+          "returned": [
+            "sob1(breathing)",
+            "sob3(breathing)"
+          ],
+          "has_history": true,
+          "recall": 0.5,
+          "latest_hit": false,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "wheeze_paraphrase",
+          "returned": [
+            "wz1(wheeze)",
+            "wz2(wheeze)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "cough_mucus",
+          "returned": [
+            "cg1(cough)"
+          ],
+          "has_history": true,
+          "recall": 0.5,
+          "latest_hit": false,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "chest_pain_new",
+          "returned": [
+            "cp1(chest_pain)",
+            "cp2(chest_pain)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "dizzy_standing",
+          "returned": [
+            "dz1(dizziness)",
+            "dz2(dizziness)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "dizzy_checkin_item",
+          "returned": [
+            "dz1(dizziness)",
+            "dz2(dizziness)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "rash_back",
+          "returned": [
+            "rash1(rash)",
+            "rash2(rash)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "knee_again",
+          "returned": [
+            "knee1(knee)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "sleep_trouble",
+          "returned": [
+            "slp1(sleep)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "nausea_pills",
+          "returned": [
+            "nau1(nausea)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "throat_scratchy",
+          "returned": [
+            "thr1(throat)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "two_symptoms",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sob1(breathing)",
+            "sob3(breathing)",
+            "sw3(swelling)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 0.675,
+          "latest_hit": false,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "no_history_confusion",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "no_history_confusion_checkin",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_headache",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_itchy_eyes",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_back_pain",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_chest_congestion",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_eye_swelling",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        }
+      ]
+    },
+    "+watch_for": {
+      "family_recall": 0.984,
+      "latest_status_hit": 0.95,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0,
+      "cases": [
+        {
+          "id": "swelling_paraphrase",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_legs_puffy",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_checkin_item",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_followup_weak_context",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "weight_paraphrase",
+          "returned": [
+            "wt1(weight)",
+            "wt2(weight)",
+            "wt3(weight)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "weight_checkin_item",
+          "returned": [
+            "wt1(weight)",
+            "wt2(weight)",
+            "wt3(weight)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_exertion",
+          "returned": [
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_orthopnea",
+          "returned": [
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_checkin_item",
+          "returned": [
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "wheeze_paraphrase",
+          "returned": [
+            "wz1(wheeze)",
+            "wz2(wheeze)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "cough_mucus",
+          "returned": [
+            "cg1(cough)",
+            "cg2(cough)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "chest_pain_new",
+          "returned": [
+            "cp1(chest_pain)",
+            "cp2(chest_pain)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "dizzy_standing",
+          "returned": [
+            "dz1(dizziness)",
+            "dz2(dizziness)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "dizzy_checkin_item",
+          "returned": [
+            "dz1(dizziness)",
+            "dz2(dizziness)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "rash_back",
+          "returned": [
+            "rash1(rash)",
+            "rash2(rash)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "knee_again",
+          "returned": [
+            "knee1(knee)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "sleep_trouble",
+          "returned": [
+            "slp1(sleep)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "nausea_pills",
+          "returned": [
+            "nau1(nausea)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "throat_scratchy",
+          "returned": [
+            "thr1(throat)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "two_symptoms",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sob1(breathing)",
+            "sob3(breathing)",
+            "sw3(swelling)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 0.675,
+          "latest_hit": false,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "no_history_confusion",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "no_history_confusion_checkin",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_headache",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_itchy_eyes",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_back_pain",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_chest_congestion",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_eye_swelling",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        }
+      ]
+    },
+    "+history": {
+      "family_recall": 1.0,
+      "latest_status_hit": 1,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0,
+      "cases": [
+        {
+          "id": "swelling_paraphrase",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_legs_puffy",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_checkin_item",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_followup_weak_context",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "weight_paraphrase",
+          "returned": [
+            "wt1(weight)",
+            "wt2(weight)",
+            "wt3(weight)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "weight_checkin_item",
+          "returned": [
+            "wt1(weight)",
+            "wt2(weight)",
+            "wt3(weight)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_exertion",
+          "returned": [
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_orthopnea",
+          "returned": [
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_checkin_item",
+          "returned": [
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "wheeze_paraphrase",
+          "returned": [
+            "wz1(wheeze)",
+            "wz2(wheeze)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "cough_mucus",
+          "returned": [
+            "cg1(cough)",
+            "cg2(cough)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "chest_pain_new",
+          "returned": [
+            "cp1(chest_pain)",
+            "cp2(chest_pain)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "dizzy_standing",
+          "returned": [
+            "dz1(dizziness)",
+            "dz2(dizziness)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "dizzy_checkin_item",
+          "returned": [
+            "dz1(dizziness)",
+            "dz2(dizziness)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "rash_back",
+          "returned": [
+            "rash1(rash)",
+            "rash2(rash)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "knee_again",
+          "returned": [
+            "knee1(knee)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "sleep_trouble",
+          "returned": [
+            "slp1(sleep)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "nausea_pills",
+          "returned": [
+            "nau1(nausea)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "throat_scratchy",
+          "returned": [
+            "thr1(throat)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "two_symptoms",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "no_history_confusion",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "no_history_confusion_checkin",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_headache",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_itchy_eyes",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_back_pain",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_chest_congestion",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_eye_swelling",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        }
+      ]
+    },
+    "full": {
+      "family_recall": 1.0,
+      "latest_status_hit": 1,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0,
+      "cases": [
+        {
+          "id": "swelling_paraphrase",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_legs_puffy",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_checkin_item",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "swelling_followup_weak_context",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "weight_paraphrase",
+          "returned": [
+            "wt1(weight)",
+            "wt2(weight)",
+            "wt3(weight)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "weight_checkin_item",
+          "returned": [
+            "wt1(weight)",
+            "wt2(weight)",
+            "wt3(weight)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_exertion",
+          "returned": [
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_orthopnea",
+          "returned": [
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "breathing_checkin_item",
+          "returned": [
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "wheeze_paraphrase",
+          "returned": [
+            "wz1(wheeze)",
+            "wz2(wheeze)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "cough_mucus",
+          "returned": [
+            "cg1(cough)",
+            "cg2(cough)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "chest_pain_new",
+          "returned": [
+            "cp1(chest_pain)",
+            "cp2(chest_pain)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "dizzy_standing",
+          "returned": [
+            "dz1(dizziness)",
+            "dz2(dizziness)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "dizzy_checkin_item",
+          "returned": [
+            "dz1(dizziness)",
+            "dz2(dizziness)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "rash_back",
+          "returned": [
+            "rash1(rash)",
+            "rash2(rash)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "knee_again",
+          "returned": [
+            "knee1(knee)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "sleep_trouble",
+          "returned": [
+            "slp1(sleep)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "nausea_pills",
+          "returned": [
+            "nau1(nausea)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "throat_scratchy",
+          "returned": [
+            "thr1(throat)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "two_symptoms",
+          "returned": [
+            "sw1(swelling)",
+            "sw2(swelling)",
+            "sob1(breathing)",
+            "sob2(breathing)",
+            "sob3(breathing)",
+            "sw3(swelling)",
+            "sw4(swelling)",
+            "sw5(swelling)",
+            "sob4(breathing)"
+          ],
+          "has_history": true,
+          "recall": 1.0,
+          "latest_hit": true,
+          "precision": 1.0,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "no_history_confusion",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "no_history_confusion_checkin",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_headache",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_itchy_eyes",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_back_pain",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_chest_congestion",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        },
+        {
+          "id": "distractor_eye_swelling",
+          "returned": [],
+          "has_history": false,
+          "recall": null,
+          "latest_hit": null,
+          "precision": null,
+          "false_hit": false,
+          "leak": false
+        }
+      ]
+    }
+  },
+  "threshold_sweep": {
+    "spec_baseline": [
+      {
+        "threshold": 0.4,
+        "family_recall": 0.971,
+        "latest_status_hit": 0.95,
+        "precision": 0.687,
+        "no_history_false_hit_rate": 0.571,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.425,
+        "family_recall": 0.959,
+        "latest_status_hit": 0.95,
+        "precision": 0.793,
+        "no_history_false_hit_rate": 0.429,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.45,
+        "family_recall": 0.936,
+        "latest_status_hit": 0.95,
+        "precision": 0.861,
+        "no_history_false_hit_rate": 0.429,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.475,
+        "family_recall": 0.936,
+        "latest_status_hit": 0.95,
+        "precision": 0.87,
+        "no_history_false_hit_rate": 0.429,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.5,
+        "family_recall": 0.874,
+        "latest_status_hit": 0.8,
+        "precision": 0.932,
+        "no_history_false_hit_rate": 0.286,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.525,
+        "family_recall": 0.874,
+        "latest_status_hit": 0.8,
+        "precision": 0.955,
+        "no_history_false_hit_rate": 0.143,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.55,
+        "family_recall": 0.844,
+        "latest_status_hit": 0.75,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.575,
+        "family_recall": 0.801,
+        "latest_status_hit": 0.65,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.6,
+        "family_recall": 0.771,
+        "latest_status_hit": 0.6,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.625,
+        "family_recall": 0.708,
+        "latest_status_hit": 0.6,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.65,
+        "family_recall": 0.642,
+        "latest_status_hit": 0.5,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.675,
+        "family_recall": 0.541,
+        "latest_status_hit": 0.35,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.7,
+        "family_recall": 0.476,
+        "latest_status_hit": 0.3,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.725,
+        "family_recall": 0.42,
+        "latest_status_hit": 0.3,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.75,
+        "family_recall": 0.375,
+        "latest_status_hit": 0.3,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.775,
+        "family_recall": 0.182,
+        "latest_status_hit": 0.2,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.8,
+        "family_recall": 0.132,
+        "latest_status_hit": 0.1,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      }
+    ],
+    "full": [
+      {
+        "threshold": 0.4,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 0.639,
+        "no_history_false_hit_rate": 0.571,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.425,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 0.78,
+        "no_history_false_hit_rate": 0.429,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.45,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 0.866,
+        "no_history_false_hit_rate": 0.429,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.475,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 0.877,
+        "no_history_false_hit_rate": 0.429,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.5,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 0.932,
+        "no_history_false_hit_rate": 0.286,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.525,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 0.955,
+        "no_history_false_hit_rate": 0.143,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.55,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.575,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.6,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.625,
+        "family_recall": 1.0,
+        "latest_status_hit": 1,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.65,
+        "family_recall": 0.975,
+        "latest_status_hit": 0.95,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.675,
+        "family_recall": 0.925,
+        "latest_status_hit": 0.9,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.7,
+        "family_recall": 0.9,
+        "latest_status_hit": 0.9,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.725,
+        "family_recall": 0.9,
+        "latest_status_hit": 0.9,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.75,
+        "family_recall": 0.9,
+        "latest_status_hit": 0.9,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.775,
+        "family_recall": 0.8,
+        "latest_status_hit": 0.8,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      },
+      {
+        "threshold": 0.8,
+        "family_recall": 0.8,
+        "latest_status_hit": 0.8,
+        "precision": 1.0,
+        "no_history_false_hit_rate": 0,
+        "other_patient_leaks": 0
+      }
+    ]
+  },
+  "weight_sweep": [
+    {
+      "symptom_weight": 0.5,
+      "family_recall": 0.638,
+      "latest_status_hit": 0.4,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0
+    },
+    {
+      "symptom_weight": 0.6,
+      "family_recall": 0.753,
+      "latest_status_hit": 0.6,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0
+    },
+    {
+      "symptom_weight": 0.7,
+      "family_recall": 0.771,
+      "latest_status_hit": 0.6,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0
+    },
+    {
+      "symptom_weight": 0.8,
+      "family_recall": 0.784,
+      "latest_status_hit": 0.65,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0
+    },
+    {
+      "symptom_weight": 0.9,
+      "family_recall": 0.834,
+      "latest_status_hit": 0.75,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0
+    },
+    {
+      "symptom_weight": 1.0,
+      "family_recall": 0.856,
+      "latest_status_hit": 0.9,
+      "precision": 1.0,
+      "no_history_false_hit_rate": 0,
+      "other_patient_leaks": 0
+    }
+  ],
+  "score_distribution": {
+    "relevant": [
+      0.5803330807502536,
+      0.6140709474950026,
+      0.7293196011707604,
+      0.8351823260281205,
+      0.6794197989499327,
+      0.5674691264827514,
+      0.7062168921420325,
+      0.6485327977378568,
+      0.5364650266300433,
+      0.5779882071095419,
+      0.6586507569562297,
+      0.5864871900343238,
+      0.5581388315159604,
+      0.6190886398954725,
+      0.7436637595768483,
+      0.5303741254921832,
+      0.43717695980366017,
+      0.5427823328674796,
+      0.7605184026593719,
+      0.5576073986033468,
+      0.6564134126667952,
+      0.7249352125153357,
+      0.7707010870527022,
+      0.8134770353873519,
+      0.7004641528969049,
+      0.7746368490587499,
+      0.5545944306197341,
+      0.6691729079762552,
+      0.3898618304012577,
+      0.7066515042272059,
+      0.4986145910988228,
+      0.48757238020004817,
+      0.7690131720034874,
+      0.44517707447551014,
+      0.4812333431875803,
+      0.6569523388471139,
+      0.4238366919291698,
+      0.6207945191956757,
+      0.6459388331685549,
+      0.8631717353531821,
+      0.4949721578919929,
+      0.7401282099284694,
+      0.7884721167029471,
+      0.8007877820336639,
+      0.6910837336566612,
+      0.7528687226770688,
+      0.7946444302573483,
+      0.6101514085693007,
+      0.6426185144453082,
+      0.6931992926073799,
+      0.7574982005232452,
+      0.6740078721257647,
+      0.8053535457637623,
+      0.7634260685778174,
+      0.6088579803394141,
+      0.7514944045353839,
+      0.4158478081957981,
+      0.7507179198898055,
+      0.5477552426546884,
+      0.5439380380759571,
+      0.689651724335077,
+      0.8328653986396342,
+      0.6492071544117111
+    ],
+    "irrelevant": [
+      0.24767771033467167,
+      0.2268893374161633,
+      0.2304149727705282,
+      0.3809421558540506,
+      0.26782060266703805,
+      0.24402242468584484,
+      0.3165474692199649,
+      0.30384502366288146,
+      0.29629568708475296,
+      0.25607937393635893,
+      0.2094703252350458,
+      0.24540173036711282,
+      0.2346536547415483,
+      0.2845391058845208,
+      0.23825821480383214,
+      0.2964827033653703,
+      0.25910061288497066,
+      0.28338495384641565,
+      0.3098119078494771,
+      0.2899116009050385,
+      0.29345503434539333,
+      0.22548356426386512,
+      0.2101961133870328,
+      0.22783027238120013,
+      0.3494931448918034,
+      0.29410088895606257,
+      0.24151998942776354,
+      0.33693350997777083,
+      0.3777757436130543,
+      0.3119810026477683,
+      0.30458296876182955,
+      0.21103728641043976,
+      0.2992177465244612,
+      0.21289460062464904,
+      0.2972464226971707,
+      0.2608603796118371,
+      0.3012444226929444,
+      0.26826900681964966,
+      0.3299356131952611,
+      0.2935967589673333,
+      0.31105503329278683,
+      0.33322900624269186,
+      0.3015892781026458,
+      0.2418993424559912,
+      0.1939278521245576,
+      0.3308505947895788,
+      0.27300093415517895,
+      0.28722063359198363,
+      0.2894549833138602,
+      0.29674895153314934,
+      0.27539241043443863,
+      0.26685527283399196,
+      0.21242862567717177,
+      0.26571311181125923,
+      0.25426651864368616,
+      0.3151732775442237,
+      0.24845028373685343,
+      0.28357892448462013,
+      0.2538828470949384,
+      0.25559173424243975,
+      0.3763305986436046,
+      0.3596984107686848,
+      0.36631668221167313,
+      0.26882026125562164,
+      0.21219055016315114,
+      0.19283344264548152,
+      0.378147647715535,
+      0.2716116933505398,
+      0.24469452610023013,
+      0.2672390130610268,
+      0.2700326845946639,
+      0.2632539949500522,
+      0.266609868436519,
+      0.22427887340891725,
+      0.2193223857904204,
+      0.29342160725029753,
+      0.28662016325169826,
+      0.24096933808672438,
+      0.27641296720781405,
+      0.22874524065851212,
+      0.2613204511460912,
+      0.32344772752793227,
+      0.2768347098540957,
+      0.2812669947612623,
+      0.19543665572988664,
+      0.23933659090482118,
+      0.22624023728003473,
+      0.19111298321562836,
+      0.22185356265577605,
+      0.17260128728107146,
+      0.2529300120969371,
+      0.29825318211332613,
+      0.22694392481276104,
+      0.19954658411043114,
+      0.14617753573512013,
+      0.2691000531248071,
+      0.1971158861981034,
+      0.26353502409105845,
+      0.21053760777872052,
+      0.20855417148205113,
+      0.23113535871153232,
+      0.2059853998540356,
+      0.31324577767237255,
+      0.31583527870991107,
+      0.32503137003225907,
+      0.2577564309325995,
+      0.34217679225734504,
+      0.1888554554306357,
+      0.256147169060668,
+      0.2167670962921325,
+      0.20177403404647296,
+      0.2657376783235707,
+      0.25590915251224644,
+      0.2350031686350416,
+      0.33676769113428456,
+      0.22523471943752088,
+      0.23310472440530255,
+      0.1411410605726906,
+      0.24770450596325902,
+      0.24157630846179967,
+      0.3000525899401161,
+      0.24175095374311759,
+      0.21319961379302368,
+      0.2365138845595275,
+      0.20028915009502007,
+      0.30936600583345414,
+      0.30266161758042087,
+      0.31438764734482083,
+      0.2792260727289577,
+      0.3433519850795077,
+      0.3281586644633291,
+      0.29834202709380375,
+      0.29934304322494,
+      0.36404773606396357,
+      0.20804524732056512,
+      0.20330779011911895,
+      0.44435039929915054,
+      0.46120689126298614,
+      0.3787147738530141,
+      0.36428245819907135,
+      0.3117416596893521,
+      0.4099670233917482,
+      0.2669548855560802,
+      0.3109549170898031,
+      0.2970420934171388,
+      0.3032169531175819,
+      0.2918984724588677,
+      0.3466048453710705,
+      0.283190611195237,
+      0.2970051528920321,
+      0.2838189743725657,
+      0.3030947286243318,
+      0.3361222008073471,
+      0.19927088441810797,
+      0.1761726894213525,
+      0.31695178073777636,
+      0.38348209104759906,
+      0.3939617430161798,
+      0.38608700012303576,
+      0.22308726149462796,
+      0.32855186328137154,
+      0.2197631133708406,
+      0.2267054557252239,
+      0.2583401300598252,
+      0.24542773617021246,
+      0.314348059117995,
+      0.34305906866639624,
+      0.27829080271759776,
+      0.2772354501675858,
+      0.3437390298902602,
+      0.21680568084123697,
+      0.24745012707697617,
+      0.3295799254819527,
+      0.20647614390975966,
+      0.20023099519769458,
+      0.2980194548479555,
+      0.3464466957831421,
+      0.41219066059372617,
+      0.4147113772928459,
+      0.2747659994702209,
+      0.3923078944173401,
+      0.2700217222593802,
+      0.2724200498990993,
+      0.26433468132851357,
+      0.31115297777342993,
+      0.31407959184342565,
+      0.3385591918105534,
+      0.3044653889900872,
+      0.3419594865116149,
+      0.3446747273352374,
+      0.26187673826300073,
+      0.27139966777020613,
+      0.3011523864574131,
+      0.24691478596257585,
+      0.32695627672781913,
+      0.29258527488799946,
+      0.33852818213753255,
+      0.3351215617776345,
+      0.31537358965290063,
+      0.37006901836675454,
+      0.4451002232844186,
+      0.27953785053752794,
+      0.28877247487167496,
+      0.3065552631575916,
+      0.29898204264865,
+      0.28997670833353284,
+      0.30419416306046854,
+      0.24959794031759203,
+      0.34442231250411187,
+      0.25822692100535954,
+      0.20678923108313313,
+      0.2603198527539555,
+      0.2782109011086863,
+      0.22246113534197842,
+      0.243463766552614,
+      0.2464203340359706,
+      0.36404743445136223,
+      0.31987489612589215,
+      0.3171089575910007,
+      0.3518369450180526,
+      0.2594096104292075,
+      0.3212301850403062,
+      0.21512762038534106,
+      0.22078859556291658,
+      0.2295890492445411,
+      0.29424626648182495,
+      0.274040374449142,
+      0.28120325996150836,
+      0.19989170386487987,
+      0.2929655448140712,
+      0.4098342467496317,
+      0.31412902566240464,
+      0.2846991876290332,
+      0.4302006438587268,
+      0.30015967641738717,
+      0.3029533381537769,
+      0.33649055003028816,
+      0.3410451024261858,
+      0.31781312852860766,
+      0.40057037019699204,
+      0.2948408431584307,
+      0.37560449058197126,
+      0.39309581307758656,
+      0.43303543628222446,
+      0.3769910868758812,
+      0.4180288862144961,
+      0.25910963264969106,
+      0.24101129901797042,
+      0.23890838232279346,
+      0.29584592859313563,
+      0.29451612783904785,
+      0.2940319792511671,
+      0.27822516449617013,
+      0.3362095083313087,
+      0.24448108754874348,
+      0.4221880429696132,
+      0.3342805502110313,
+      0.2840358275158194,
+      0.18215260947323877,
+      0.228345842007043,
+      0.3116669136734017,
+      0.31011796786125767,
+      0.23190391144485886,
+      0.2712012714651309,
+      0.279678912909577,
+      0.29818629314024264,
+      0.3738276654521895,
+      0.36869634306304955,
+      0.3356627981203024,
+      0.40808755965629007,
+      0.29314150223732405,
+      0.2953765876659715,
+      0.31642481163336833,
+      0.29940436242801316,
+      0.29822569418928874,
+      0.3200124345475504,
+      0.25750930673099237,
+      0.303514358510024,
+      0.2655226703939507,
+      0.48347178067048674,
+      0.3210125135233953,
+      0.3123423083686816,
+      0.1625949971679268,
+      0.21603824837311766,
+      0.3250615339951881,
+      0.3333644425000196,
+      0.2678585137613797,
+      0.2656749851717965,
+      0.2739087165343204,
+      0.30436615599162437,
+      0.40409670995830027,
+      0.37011441745882767,
+      0.31132189278643235,
+      0.3683527052152529,
+      0.2605160252822789,
+      0.3007116361044703,
+      0.283593628464838,
+      0.3366920875283994,
+      0.29811100625134657,
+      0.3390929695248292,
+      0.27803624318551134,
+      0.3459303550918149,
+      0.3343751862008942,
+      0.25418266117498767,
+      0.22375398771130472,
+      0.25182903580570626,
+      0.2179427341507952,
+      0.22096483643991624,
+      0.2990828124271544,
+      0.26480747256669634,
+      0.28879450309283944,
+      0.3022624954901777,
+      0.25627546903685483,
+      0.33980572611797516,
+      0.22412162239293656,
+      0.2453428110196827,
+      0.1926199893189366,
+      0.22024506125337018,
+      0.24051899261632412,
+      0.1908903174079202,
+      0.21822440699053136,
+      0.32821639809306025,
+      0.2970738086916397,
+      0.3105851682544652,
+      0.2850052379556866,
+      0.28789328315955415,
+      0.33918901054514505,
+      0.2757409246559317,
+      0.22434272219845913,
+      0.2571973885865049,
+      0.26763474795616626,
+      0.3054446796641376,
+      0.22991534887229131,
+      0.3549340266237111,
+      0.3382089824966422,
+      0.22668772370634405,
+      0.26434713050625863,
+      0.26614284184695075,
+      0.2706657997524907,
+      0.24070376674906707,
+      0.2534853619161911,
+      0.26450651015674187,
+      0.2577981826698201,
+      0.18371421412589864,
+      0.18706656185826168,
+      0.17992337089986726,
+      0.34434545646129106,
+      0.3127775371520308,
+      0.3688165979325657,
+      0.40928850667178884,
+      0.34033940169905985,
+      0.2368006181103764,
+      0.27472584663746785,
+      0.22527006153644025,
+      0.19321379713046563,
+      0.15498012093187935,
+      0.31922554132742426,
+      0.3010834934523129,
+      0.2858509018777527,
+      0.23490157581249138,
+      0.20995914139392557,
+      0.25536831257443054,
+      0.2023572249983881,
+      0.2802554329436843,
+      0.3061936380700992,
+      0.28368618310968624,
+      0.4146174441068658,
+      0.2658092824916216,
+      0.2582901063564864,
+      0.2628781353972799,
+      0.2532075974913114,
+      0.2266343085365472,
+      0.22060521287356533,
+      0.2941765308912775,
+      0.2366184235401707,
+      0.2118326408811963,
+      0.3188423107158811,
+      0.2915814211798026,
+      0.2684657794588574,
+      0.24915852774821923,
+      0.29960031436367784,
+      0.44680078327930645,
+      0.3916212841551454,
+      0.2966758505214737,
+      0.3026242418344861,
+      0.2593572717990628,
+      0.2937971436401633,
+      0.26736563628402205,
+      0.2727295078559841,
+      0.30091020075131186,
+      0.29328501871101775,
+      0.26659040760156044,
+      0.26320514292449626,
+      0.21595186320395832,
+      0.24151419286682124,
+      0.25710534195137286,
+      0.250193771860047,
+      0.2184447030797772,
+      0.26530492286666196,
+      0.1950833550847486,
+      0.2582394375407917,
+      0.2806138276432984,
+      0.23786744528184106,
+      0.2964725380254506,
+      0.30793926644537667,
+      0.35919374308477303,
+      0.2470868869471362,
+      0.2546730659540202,
+      0.3586395863928163,
+      0.33355731775859704,
+      0.25663148326425844,
+      0.37051209834793786,
+      0.2585045041069417,
+      0.330078190936276,
+      0.27926001119445265,
+      0.32252717541593545,
+      0.16686154570897344,
+      0.15167500881799728,
+      0.15120356206273128,
+      0.2828872437155293,
+      0.24014973564845069,
+      0.21648021357616073,
+      0.18198844223305718,
+      0.29027375650771364,
+      0.32282483249343075,
+      0.28354812699579973,
+      0.31636455982501,
+      0.4117227485495373,
+      0.2561235517776813,
+      0.26766848951976435,
+      0.3889392996372588,
+      0.43890767717889884,
+      0.4509562071692119,
+      0.424936942586908,
+      0.2914971976637073,
+      0.39788275401327355,
+      0.29451909377064944,
+      0.26888716084676656,
+      0.27447010119473864,
+      0.20567980270287442,
+      0.31596537945932773,
+      0.35143478047628585,
+      0.18636133813980787,
+      0.22103161939493593,
+      0.24382115293923629,
+      0.36389132783158507,
+      0.36983760856562,
+      0.18171602198899534,
+      0.1524841184411568,
+      0.2503392960526301,
+      0.24822990465065908,
+      0.18736040659495054,
+      0.2453712389393607,
+      0.24687739728811497,
+      0.2546571988030908,
+      0.20978503813452715,
+      0.2471993924079111,
+      0.20661171715813426,
+      0.2459170869891023,
+      0.23415058242422945,
+      0.21590173126661744,
+      0.24633417619105283,
+      0.25262293185371115,
+      0.19026553857480485,
+      0.24425574969551817,
+      0.18230064874445995,
+      0.30806438490077126,
+      0.2944114508710627,
+      0.18073544472094819,
+      0.2041324479279812,
+      0.30342714269503446,
+      0.3572648827427559,
+      0.30987720825045645,
+      0.20445219427494138,
+      0.18846292474599308,
+      0.27192046365527195,
+      0.18318736516966544,
+      0.20639464211013714,
+      0.1893885415742684,
+      0.24943634332774797,
+      0.19874872222883416,
+      0.17346233378742207,
+      0.18864322932123648,
+      0.20430054612592552,
+      0.21446065657429766,
+      0.21485937228530477,
+      0.28054308995319166,
+      0.23457168327950098,
+      0.21021070331023375,
+      0.18285917072841176,
+      0.2877416144018057,
+      0.3761424184440023,
+      0.3524325149124925,
+      0.33244255671076794,
+      0.3954367952905617,
+      0.27316419669173597,
+      0.3355639285869847,
+      0.38036477016472603,
+      0.40690081512419884,
+      0.41431553612693467,
+      0.40093463014839253,
+      0.268270978869285,
+      0.3191132940652388,
+      0.23378107809329413,
+      0.29599571989451023,
+      0.2821568148521734,
+      0.24865164388266706,
+      0.3202418541670623,
+      0.25978406952136174,
+      0.23109970238886215,
+      0.2252434811105068,
+      0.22121621010186066,
+      0.28809902641801094,
+      0.2715456475573508,
+      0.2268105518589737,
+      0.24931817340587054,
+      0.3041965731410129,
+      0.3520510815599809,
+      0.24816874469163835,
+      0.25568189220800824,
+      0.2326586989220381,
+      0.30578252813222967,
+      0.33766932026422236,
+      0.23878505325984112,
+      0.26702833350733896,
+      0.2205287522227028,
+      0.20817861515928082,
+      0.23753210799877872,
+      0.318800620639715,
+      0.24308515640728734,
+      0.39284553610690287,
+      0.1939400213316203,
+      0.20071639193278504,
+      0.21982653828202436,
+      0.20304050368287754,
+      0.16139005860835193,
+      0.18138161373756273,
+      0.1899348518188976,
+      0.28251465505595447,
+      0.32595926955608145,
+      0.37447229556886197,
+      0.2596757440760171,
+      0.3130581448527235,
+      0.37433402807806665,
+      0.2884497707148306,
+      0.3159459023426946,
+      0.49159849781286347,
+      0.27421659866826714,
+      0.2940127629220455,
+      0.3027808699419684,
+      0.2581624623714176,
+      0.472485330346718,
+      0.4741012753869678,
+      0.23894060716052382,
+      0.30234072819670166,
+      0.2453675376774194,
+      0.26397251095391727,
+      0.29937612616236964,
+      0.2734256242381957,
+      0.3391259777844548,
+      0.29176349921984995,
+      0.22742054214206084,
+      0.23001041858762925,
+      0.22781532197485282,
+      0.3178182842023841,
+      0.2998631680597527,
+      0.30251063853011023,
+      0.3285495882516356,
+      0.3231286499328721,
+      0.43647715006446325,
+      0.25305039406908375,
+      0.2661971007160834,
+      0.287541319369425,
+      0.21743154025240358,
+      0.2547324434736947,
+      0.2926736006152877,
+      0.31689064194813127,
+      0.5146961718612988,
+      0.4900444029065071,
+      0.3421157822850534,
+      0.39162109622884533,
+      0.3355222524967293,
+      0.3666912714991609,
+      0.18247929154160308,
+      0.20468932644131832,
+      0.21279311772259418,
+      0.31668512115007047,
+      0.32642626334738245,
+      0.2796441605807562,
+      0.25025824865006796,
+      0.3546042535858637,
+      0.2937996538228885,
+      0.19195232421228287,
+      0.21374808862238448,
+      0.2591450317914312,
+      0.2795391418182593,
+      0.2608677458223559,
+      0.19334401697082076,
+      0.25467065608123535,
+      0.22347500258677716,
+      0.19047481051823387,
+      0.18692096783329315,
+      0.24265245748428033,
+      0.2191652690487585,
+      0.27966128069265195,
+      0.16666709250225414,
+      0.18821997684491665,
+      0.20912579084170385,
+      0.17469571364862096,
+      0.2306679747188385,
+      0.23735666490772783,
+      0.24912063272711088,
+      0.4734337906202893,
+      0.46306284787546825,
+      0.4129743387843813,
+      0.44972737575293836,
+      0.5433936766330788
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+Django>=5.1,<6.0
+djangorestframework>=3.15,<4.0
+langgraph>=0.2,<1.0
+langchain-openai>=0.2,<1.0
+openai>=1.40,<2.0
+pydantic>=2.9,<3.0
+python-dotenv>=1.0,<2.0
+# Optional: only needed if you set DATABASE_URL for Postgres.
+dj-database-url>=2.2,<3.0
+psycopg[binary]>=3.2,<4.0
+
+# Retrieval experiment charts (retrieval_eval/).
+matplotlib>=3.9,<4.0
