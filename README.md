@@ -1,4 +1,4 @@
-# Takehome Health Assistant
+# Health Assistant Chat with Agents + RAG
 
 A prototype of a patient-facing chat assistant and a care-team dashboard, built with Django, Django REST Framework, LangGraph, and OpenAI. The full technical write-up (agent stages, retrieval math, data model, API, evals) is in [TECHNICAL.md].
 
